@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 예제 02</title>
+</head>
+<body>
+    <h4>1에서 100까지 짝수의 합을 구해봅시다.</h4>
+    <script>
+        var s = 0;
+        for (var i = 1; i <=50; i++) {
+            var s = s + (2*i);
+            console.log(i, s);
+        }
+        document.write("답은 " + s);
+
+        // for (var i = 1; i <= 100; i++) {
+        //     if (i % 2 == 0) {
+        //         s += i;
+        //         console.log(i, s);
+        //     }
+        // }
+    </script>
+</body>
+</html>
