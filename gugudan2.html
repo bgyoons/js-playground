@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 구구단 </title>
+</head>
+<body>
+    <h3> While 반복문을 사용한 구구단 </h3>
+    <script>
+        var a = Number(prompt("출력하고 싶은 구구단을 숫자로 알려주세요. (5단 = 5 입력)"))
+        var i = 1;
+        document.write( "<h4>" + a + "단 구구단 </h4>" );
+        while (i < 10) {
+            document.write(a + " * " + i  + " = " + a*i + "<br>");
+            i += 1;
+        } 
+    </script>
+</body>
+</html>
