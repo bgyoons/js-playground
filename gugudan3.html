@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+<body>
+    <script>
+        var n = Number(prompt("출력하고 싶은 단의 숫자를 입력하여 주십시오."));
+        var i = 1;
+        document.write( "<h4>" + n + "단 구구단 </h4>" );
+        while (i <=9) {
+            if (2 <= n && n <= 9) {
+                document.write(n + " * " + i  + " = " + n*i + "<br>");
+                i += 1;
+            } else {
+                alert("2 이상, 9 이하의 값만 입력할 수 있습니다.");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
