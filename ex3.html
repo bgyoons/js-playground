@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소수 출력하기</title>
+</head>
+<body>
+    <h1>객체를 이용하여 1부터 10,000까지 소수 출력하기</h1>
+    <div id = "result"></div>
+    <script>
+        // 객체 선언
+        var numbers = {};
+
+        // 힘수를 이용해서 후에 값을 여기에 추가
+        numbers.all = [];
+        numbers.prime = [];
+
+        // 전체 숫자 추가
+        numbers.addAll = function(max_num) {
+            for (var i = 2; i <= max_num; i++) {
+                this.all.push(i);
+            }
+        };
+
+        // 소수 판별 함수
+        numbers.isPrime = function(number) {
+            for (var i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    return false;
+                } 
+            } return true;      
+            // return true;가 for 밖에 있어야 2가 if 조건에서 벗어나 소수로 나옴
+        };
+
+        // 소수 판별 함수에서 true 나온 함수를 numbers.prime에 추가 -> .push()
+        numbers.addPrime = function() {
+            for (var i = 0; i < this.all.length; i++) {
+                var n = this.all[i];
+                if (this.isPrime(n)) {
+                    this.prime.push(n);
+                }   
+            }
+        };
+
+        // 전체 출력 (이 부분은 잘 모르겠음...)
+        numbers.getAllPrimes = function() {
+            var ret = "";
+            ret += "<h2>전체 소수의 개수:" + this.prime.length + "</h2>\n";
+            for (var i = 0; i < this.prime.length; i++) {
+                ret += (i + 1) + "번째 소수: " + this.prime[i] + "<br>\n";
+            }
+            return ret;
+        };
+
+        numbers.addAll(10000);
+        numbers.addPrime();
+        document.getElementById('result').innerHTML = numbers.getAllPrimes();
+    </script>
+</body>
+</html>
