@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+<body>
+    <h1>함수를 이용한 구구단 출력</h1>
+    <script>
+        function cal(num) {
+            var results = [];
+            for (var i = 2; i <= 9; i++) {
+                for (var j = 1; j <= 9; j++) {
+                    results.push(i*j);
+                }
+            }
+            console.log(results);
+            return results;
+        }
+
+        function print(results) {
+            cal();
+            for (var n = 0; n < cal().length; n++) {
+                for (var i = 2; i <= 9; i++) {
+                    document.write("<h3>" + i + "단 </h3>");
+                    for (var j = 1; j <= 9; j++) {
+                        document.write(i + " X " + j + " = " + i*j + "<br>");
+                    }
+                }
+            break;    
+            }
+        }
+        // function main() {
+        //     // 나머지 코드들은 여기에 
+        // }
+
+        // main();
+        cal(5);
+        print();
+    </script>
+</body>
+</html>
