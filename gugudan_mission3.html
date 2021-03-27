@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+<body>
+    <h1>구구단 추가미션</h1>
+    <ui> 
+        <h2>최종 요구사항</h2>
+        <li>참고자료, 교재, 인터넷의 도움 없이 백지 상태에서 구구단을 구현한다.</li>
+    </ui>
+    
+    <script>
+        var gugudan = {};
+        gugudan.result = [];
+
+        gugudan.calculrate = function(n) {
+            for(var i = 0; i < 9; i++) {
+                this.result[i] = n * (i + 1);
+            } gugudan.print(n);
+        };
+
+        gugudan.print = function(n) {
+            for (i = 0; i < 9; i++) {
+                document.write(n + " * " + (i + 1) + " = " + this.result[i] + "<br>");
+            }
+        };
+        
+
+        function main() {
+            for (var n = 2; n <= 9; n++) {
+                document.write("<h3>" + n + "단</h3>");
+                gugudan.calculrate(n);
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
