@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>조건문을 이용한 값 입력 및 사칙연산</h1>
+    <div id="calc"> 결과값이 입력됩니다.</div>
+    <script>
+        var a = Number(prompt("첫 번째 숫자를 입력해주세요."));
+        var b = Number(prompt("두 번째 숫자를 입력해주세요."));
+        var cal = prompt("사칙연산 기호를 하나 적어주세요.(+, -, *, / 중에 택 1)");
+        var str = "";
+        
+        if(cal == "+" || cal == "-" || cal == "*" || cal == "/") {
+            var calc = document.getElementById('calc');
+            var result = a + cal + b;
+
+            str += "<h3>입력한 연산의 결과값 입니다.</h3>";
+            str += a + " " + cal + " " + b + " = ";
+            str += eval(result);
+            
+            if(str.includes("NaN")) {
+                alert("숫자를 다시 입력해주세요.");
+                window.location.reload();
+            } else {
+                calc.innerHTML = str;
+            }
+        } else {
+            alert("연산자를 입력해주세요.");
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
