@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 계산기</title>
+</head>
+<body>
+    <h2>문자열 계산기</h2>
+    <ul>
+        <li>사용자가 입력한 값에 따라 사칙연산을 계산할 수 있는 계산기를 구현한다.</li>
+        <li>나눗셈의 결과 값은 정수로 값이 떨어지지 않더라도 정수 값만 사용하는 것으로 한다.</li>
+    </ul>
+
+    <script>
+        var str = prompt("식을 입력해주세요.(사칙연산 기호는 +, -, *, /를 이용하여 주세요.)");
+        
+        if (str.includes("+") || str.includes("-") || str.includes("*") || str.includes("/")) {
+            if (str.includes("/")) {
+                var ret = Number(String(eval(str)).split(".")[0]);
+                document.write("<h3>입력받은 식</h3>" + str + " = " + ret)
+            } else {
+            var result = eval(str);
+            document.write("<h3>입력받은 식</h3>" + str + " = " + result);
+            }
+        } else {
+            alert("올바른 식을 입력해주세요!");
+            window.location.reload();
+        }
+        
+    </script>
+</body>
+</html>
