@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>반복문 안보고 작성하기</h1>
+    <div id="cal"> 결과는 여기에 </div>
+    <script>
+        function main() {
+            var n = 1;
+            var num = Number(prompt(n + "번 째 숫자를 입력하세요."));
+            var result = num; //가독성을 높기기 위해 변수 따로 선언
+            var str = ""; str = num;
+            var out = document.getElementById("cal");
+
+            //무한루트로 해서 계속 입력받도록 하였음.
+            while(true) {
+                var op = prompt("연산자를 입력해주세요.");
+                if (op === "q") {
+                    break;
+                }
+
+                var num1 = Number(prompt((n+1) + "번 째 숫자를 입력하세요."));
+                if (op === "+") {
+                    result += num1;
+                } else if (op === "-") {
+                    result += num1;
+                } else if (op === "*") {
+                    result *= num1;
+                } else if (op === "/") {
+                    result /= num1;
+                } else {
+                    result = "연산자 오류";
+                }
+                str += op + num1;
+                n++;
+            } out.innerHTML = "<h3> 입력한 식 : " + str + "<br> 결과 : " + result;
+        }
+
+        main();
+    </script>
+</body>
+</html>

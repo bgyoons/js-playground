@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 이용해 사칙연산 구현</title>
+</head>
+<body>
+    <h1>객체를 이용해 사칙연산 구현</h1>
+    <div id="output">결과는 여기에</div>
+    <script>
+        var input = {count:2};
+        input.getFirstValue = function() {
+            var num1 = Number(prompt("1번째 숫자를 입력하세요."));
+            return num1;
+        };
+        input.getSecondValue = function() {
+            var num2 = Number(prompt(this.count + "번째 숫자를 입력하세요."));
+            this.count++;
+            return num2;
+        };
+        input.getOperator = function() {
+            while(true) {
+                var op = prompt("연산자를 입력하세요.");
+                if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+                    break;
+                } else {
+                    alert("올바른 연산자를 입력해주세요.");
+                }
+            }
+            return op;
+        };
+
+        var calculator = {};
+        calculator.calculate = function(first, second, op){
+            var ret;
+            switch(op) {
+                case "+":
+                    ret = first + second;
+                    break;
+                case "-":
+                    ret = first - second;
+                    break;
+                case "*":
+                    ret = first * second;
+                    break;
+                case "/":
+                    ret = first / second;
+                    break;
+            }
+            return ret;
+            
+        }; 
+
+        var output = {};
+        output.out = document.getElementById('output');
+        output.print = function(value){
+            this.out.innerHTML = "최종 결과값은 " + value + "입니다.";
+        };
+        
+        function main() {
+            var result = input.getFirstValue();
+            while(true) {
+                var op = input.getOperator();
+                if (op === "q") {
+                    break;
+                }
+                var num2 = input.getSecondValue();
+                result = calculator.calculate(result, num2, op);
+            }
+            output.print(result);
+        }
+        main();
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수를 이용해 사칙연산 구현</title>
+</head>
+<body>
+    <h1>계산기 입니다.</h1>
+    <h2 id="output">여기</h2>
+    <script>
+        // 첫번째 변수 함수
+        function getFirstValue() {
+            var n = Number(prompt("1 번째 수 입력"));
+            return n;
+        }
+        //두 번째 변수 함수
+        var n = 2;
+        function getSecondValue() {
+            var n2 = Number(prompt(n + "번째 수 입력"));
+            n++;
+            return n2;
+        }
+        //연산자
+        function getOperator() {
+            while(true) {
+                var op = prompt("연산자 입력 (종료 시 q 입력)");
+                if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+                    break;
+                } else {
+                    alert("올바른 연산자를 입력해주세요.");
+                    window.location.reload();
+                }
+            } return op;
+        }
+        //계산
+        function calculate(result, n2, op) {
+            var ret;
+            if (op === "+") {
+                ret = result + n2;
+            } else if (op === "-") {
+                ret = result - n2;
+            } else if (op === "/") {
+                ret = result / n2;
+            } else if (op === "*") {
+                ret = result * n2;
+            } else {
+                ret = "error";
+            } return ret;
+        }
+        //출력
+        function print(value) {
+            return "최종 결과값은 " + value + " 입니다.";
+        }
+        //실행
+        function main() {
+            var result = getFirstValue();
+            while(true) {
+                var op = getOperator();
+                if (op === "q") {
+                    break;
+                }
+                var n2 = getSecondValue();
+                result = calculate(result, n2, op);
+            }
+            var output = document.getElementById('output');
+            output.innerHTML = print(result);
+        }
+        main();
+    </script>
+</body>
+</html>
